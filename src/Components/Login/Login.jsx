@@ -24,8 +24,8 @@ const Login = () => {
          localStorage.setItem('token',response.data.token);
          localStorage.setItem('username',response.data.data.username);
          localStorage.setItem('role',response.data.role)
-         // window.location.href = '/'
-         // window.location.reload();
+         localStorage.setItem('name',response.data.data.name)
+         
          navigate('/home')
          navigate(0)
       }

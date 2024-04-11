@@ -1,0 +1,21 @@
+.booked-container{
+   display: flex;
+   flex-direction: row;
+   /* background-color: red; */
+   flex-wrap: wrap;
+   /* height: 100vh; */
+   justify-content: center;
+   color:white;
+}
+.booked-container-item{
+   margin: 10px;
+   padding: 40px 60px;
+   width:350px;
+   background-color: #1890FF;
+   box-shadow: 2px  14px 14px rgba(134, 175, 191, 0.5);
+   border-radius: 10px;
+   border: none;
+}
+.booked-container-item div{
+   padding: 10px;
+}

@@ -1,0 +1,22 @@
+.home-container{
+   width: 100%;
+   display: flex;
+
+   height: 80vh;
+   /* background-color: red; */
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.home-container-item {
+   display: block;
+   background-color: #1890FF;
+   color: white;
+   padding: 60px;
+   border-radius: 10px;
+   box-shadow: 2px  14px 14px rgba(134, 175, 191, 0.5);
+}
+.home-container-item div{
+   padding: 5px;
+   
+}
