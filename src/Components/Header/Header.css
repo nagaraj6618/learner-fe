@@ -1,0 +1,42 @@
+.header-container{
+   height: 40px;
+   /* background-color: rgb(255, 146, 63); */
+   background-color: #096DD9;
+   display: flex;
+   width: 100%;
+   justify-content:space-between;
+}
+.header-container-item{
+   margin: 10px;
+}
+.header-container-item li{
+   display: inline;
+   margin: 5px;
+   /* padding-right:1px; */
+   font-size: 17px;
+}
+
+.header-container-item-link{
+   text-decoration: none;
+   padding-top: 20px;
+   /* color:black; */
+   color: white;
+
+}
+.btn{
+   padding:3px 15px;
+   margin-right: 10px;
+   font-size: 17px;
+   border-radius: 10px;
+   border: none;
+  
+}
+.btn-login{
+   /* background-color: #096DD9; */
+   background-color: #1890FF;
+   color: white;
+
+}
+.btn-register{
+ color: red;
+}
