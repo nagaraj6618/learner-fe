@@ -62,6 +62,16 @@ const Booked = () => {
       alert(error);
     }
   }
+
+  const deleteHandler = async(id) => {
+    const response = await axios.delete(`${BE_URL}/booking/${id}`,{
+      headers:{
+        Authorization:token
+      }
+    })
+    getAllBooked();
+  }
+
   return (
     <div>
       <div style={{
@@ -91,7 +101,10 @@ const Booked = () => {
                   <h3> {data.name} {data.username}</h3>
                 </div>
                 <div>
-                  <p>Time : {`${data.time} ,Date : ${data.date}`}</p>
+                  <p>Time : {`${data.time}`}</p>
+                </div>
+                <div>
+                  <p>Date : {`${data.date}`}</p>
                 </div>
                 <div>
                   <p>Status : {data.examstatus}</p>
@@ -102,8 +115,9 @@ const Booked = () => {
                 {(userRole === "admin" && <div>
                   <button className='btn' onClick={() => approveHandler(data._id, 'Approved')}>✔️</button>
                   <button className='btn' onClick={() => approveHandler(data._id, 'Rejected')}>❌</button>
+                  
                 </div>)}
-
+                <button className='btn' onClick={() => deleteHandler(data._id)}>Delete</button>
               </div>)))
 
 
