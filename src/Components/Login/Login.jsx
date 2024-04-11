@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { BE_URL } from '../../info/url'
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom' 
 import './Login.css'
 const Login = () => {
+   const navigate = useNavigate();
    const [userData, setUserData] = useState({
       username: '',
       password: ''
@@ -16,11 +18,16 @@ const Login = () => {
       try{
          const response = await axios.post(`${BE_URL}/auth/login/`,userData,{
             withCredentials: true,
+         
          })
          console.table(response)
          localStorage.setItem('token',response.data.token);
          localStorage.setItem('username',response.data.data.username);
+         localStorage.setItem('role',response.data.role)
          // window.location.href = '/'
+         // window.location.reload();
+         navigate('/home')
+         navigate(0)
       }
       catch(error){
          alert(error)
