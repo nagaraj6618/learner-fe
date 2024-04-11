@@ -28,45 +28,50 @@ const Booked = () => {
       console.table(response.data.data);
       setBooked(response.data.data);
       setAllBooked(response.data.data);
-      
+
     }
 
 
   }
   useEffect(() => {
     getAllBooked();
-    
+
   }, []);
 
   const filterHandler = (e) => {
-    
-    const filterData =  allBooked.filter((data) => data.date === e.target.value);
+
+    const filterData = allBooked.filter((data) => data.date === e.target.value);
+    console.table(booked)
+    setBooked(filterData)
+  }
+  const statusFilterHandler = (e) => {
+    const filterData = allBooked.filter((data) => data.examstatus === e.target.value);
     console.table(booked)
     setBooked(filterData)
   }
 
-  const approveHandler = async(id,status) => {
-    console.table(id,status)
-    try{
-    const response = await axios.put(`${BE_URL}/booking/${id}`,{examstatus:status},
-  {
-    headers:{
-      Authorization:`${token}`
+  const approveHandler = async (id, status) => {
+    console.table(id, status)
+    try {
+      const response = await axios.put(`${BE_URL}/booking/${id}`, { examstatus: status },
+        {
+          headers: {
+            Authorization: `${token}`
+          }
+        }
+      )
+      console.table(response.data);
+      getAllBooked()
     }
-  }
-  )
-  console.table(response.data);
-  getAllBooked()
-    }
-    catch(error){
+    catch (error) {
       alert(error);
     }
   }
 
-  const deleteHandler = async(id) => {
-    const response = await axios.delete(`${BE_URL}/booking/${id}`,{
-      headers:{
-        Authorization:token
+  const deleteHandler = async (id) => {
+    const response = await axios.delete(`${BE_URL}/booking/${id}`, {
+      headers: {
+        Authorization: token
       }
     })
     getAllBooked();
@@ -86,10 +91,25 @@ const Booked = () => {
         >
         </input>
         <button className='btn btn-login'
+          style={{
+
+            margin: '10px'
+          }}
           onClick={() => getAllBooked()}
         >
           Clear Filter
         </button>
+
+        <select onChange={statusFilterHandler} className='btn'
+          style={{
+            textAlign: 'center',
+            margin: '10px'
+          }}
+        >
+          <option>Approved</option>
+          <option>Rejected</option>
+          <option>pending</option>
+        </select>
       </div>
       <div className='booked-container'>
 
@@ -115,7 +135,7 @@ const Booked = () => {
                 {(userRole === "admin" && <div>
                   <button className='btn' onClick={() => approveHandler(data._id, 'Approved')}>✔️</button>
                   <button className='btn' onClick={() => approveHandler(data._id, 'Rejected')}>❌</button>
-                  
+
                 </div>)}
                 <button className='btn' onClick={() => deleteHandler(data._id)}>Delete</button>
               </div>)))
