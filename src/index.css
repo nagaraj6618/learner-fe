@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 *{
  
 
@@ -9,8 +9,9 @@
   /* font-family : 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
   /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
   /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap') */
-  font-family: "Noto Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-
+  /* font-family: "Noto Sans", sans-serif; */
+  /* font-optical-sizing: auto; */
+  /* font-style: normal; */
+  font-family: 'pun';
+  font-family: "Public Sans", sans-serif;
 }

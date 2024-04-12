@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BE_URL, token, userId, userRole } from '../../info/url';
+import {useNavigate} from 'react-router-dom'
 import './Booked.css'
 const Booked = () => {
   const [booked, setBooked] = useState([]);
   const [allBooked, setAllBooked] = useState([]);
   const [allStatus, setAllStatus] = useState([]);
+  const navigate = useNavigate()
   async function getAllBooked() {
+    try{
     if (userRole === 'admin' && userRole) {
       const response = await axios.get(`${BE_URL}/booking`, {
         withCredentials: true,
@@ -32,6 +35,12 @@ const Booked = () => {
       setAllStatus(response.data.data);
 
     }
+  }
+  catch(err){
+    localStorage.clear();
+    // alert("Please logout and then login")
+    navigate('/login')
+  }
 
 
   }
