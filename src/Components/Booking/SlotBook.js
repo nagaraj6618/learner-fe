@@ -6,10 +6,11 @@ const SlotBook = () => {
   const [examDetails,setExamDetails] = useState(
     {
       date:'',
-      time:'',
+      time:'08.00 AM',
       examtype:'CIA',
       name:userName,
       username:userId,
+      examlocation:''
     }
   );
 
@@ -58,6 +59,7 @@ const SlotBook = () => {
                <div>
                 <div className='label'>Exam Time</div>
                 <select className='input' onChange={inputHandler} id='time'> 
+                  
                   <option>08.00 AM</option>
                   <option>09.00 AM</option>
                   <option>10.00 AM</option>
@@ -87,6 +89,14 @@ const SlotBook = () => {
                   <option value='Module'>Module</option>
                 </select>
                  
+               </div>
+               <div>
+               <div className='label'>Location</div>
+                <select id='examlocation' onChange={inputHandler} className='input'>
+                  <option value='EEE LH01'>EEE LH01</option>
+                  <option value='CSE 4F LH01'>CSE 4F LH01</option>
+                  <option value='CSE 4F LH02'>CSE 4F LH02</option>
+                </select>
                </div>
                <div>
                   <button className='btn btn-login btn-login-book' type='submit'>Book</button>

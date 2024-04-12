@@ -49,6 +49,8 @@ const Booked = () => {
   }
 
   const statusFilterHandler = (e) => {
+  
+    
     const filterData = allStatus.filter((data) => data.examstatus === e.target.value);
     console.table(booked)
     setBooked(filterData)
@@ -66,6 +68,7 @@ const Booked = () => {
       )
       console.table(response.data);
       getAllBooked()
+      // statusFilterHandler('','Approved');
     }
     catch (error) {
       alert(error);
@@ -111,6 +114,7 @@ const Booked = () => {
             cursor:'pointer'
           }}
         >
+          <option>Status</option>
           <option>Approved</option>
           <option>Rejected</option>
           <option>pending</option>
@@ -141,6 +145,9 @@ const Booked = () => {
                 </div>
                 <div>
                   <p>Exam type : {data.examtype}</p>
+                </div>
+                <div>
+                  <p>Location : {data.examlocation}</p>
                 </div>
                 {(userRole === "admin" && <div>
                   <button className='btn' onClick={() => approveHandler(data._id, 'Approved')}>✔️</button>
