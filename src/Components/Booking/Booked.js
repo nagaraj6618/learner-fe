@@ -5,7 +5,7 @@ import './Booked.css'
 const Booked = () => {
   const [booked, setBooked] = useState([]);
   const [allBooked, setAllBooked] = useState([]);
-
+  const [allStatus, setAllStatus] = useState([]);
   async function getAllBooked() {
     if (userRole === 'admin' && userRole) {
       const response = await axios.get(`${BE_URL}/booking`, {
@@ -16,6 +16,7 @@ const Booked = () => {
       });
       setBooked(response.data.data);
       setAllBooked(response.data.data);
+      setAllStatus(response.data.data);
       console.table(response.data.data);
     }
     else if (userRole === 'user' && userRole) {
@@ -28,6 +29,7 @@ const Booked = () => {
       console.table(response.data.data);
       setBooked(response.data.data);
       setAllBooked(response.data.data);
+      setAllStatus(response.data.data);
 
     }
 
@@ -43,9 +45,11 @@ const Booked = () => {
     const filterData = allBooked.filter((data) => data.date === e.target.value);
     console.table(booked)
     setBooked(filterData)
+    setAllStatus(filterData);
   }
+
   const statusFilterHandler = (e) => {
-    const filterData = allBooked.filter((data) => data.examstatus === e.target.value);
+    const filterData = allStatus.filter((data) => data.examstatus === e.target.value);
     console.table(booked)
     setBooked(filterData)
   }
@@ -92,7 +96,7 @@ const Booked = () => {
         </input>
         <button className='btn btn-login'
           style={{
-
+            cursor:'pointer',
             margin: '10px'
           }}
           onClick={() => getAllBooked()}
@@ -103,13 +107,19 @@ const Booked = () => {
         <select onChange={statusFilterHandler} className='btn'
           style={{
             textAlign: 'center',
-            margin: '10px'
+            margin: '10px',
+            cursor:'pointer'
           }}
         >
           <option>Approved</option>
           <option>Rejected</option>
           <option>pending</option>
         </select>
+        <h4
+        style={{
+          display:'inline'
+        }}
+        >Count:{booked.length}</h4>
       </div>
       <div className='booked-container'>
 

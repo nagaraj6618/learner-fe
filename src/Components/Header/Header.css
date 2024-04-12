@@ -29,6 +29,7 @@
    font-size: 17px;
    border-radius: 10px;
    border: none;
+   cursor: pointer;
   
 }
 .btn-login{
