@@ -57,7 +57,19 @@ const SlotBook = () => {
                
                <div>
                 <div className='label'>Exam Time</div>
-                  <input
+                <select className='input' onChange={inputHandler} id='time'> 
+                  <option>08.00 AM</option>
+                  <option>09.00 AM</option>
+                  <option>10.00 AM</option>
+                  <option>11.00 AM</option>
+                  <option>12.00 PM</option>
+                  <option>01.00 PM</option>
+                  <option>02.00 PM</option>
+                  <option>03.00 PM</option>
+                  <option>04.00 PM</option>
+                  <option>05.00 PM</option>
+                </select>
+                  {/* <input
                      id='time'
                      type='text'
                      placeholder='Ex:08:00'
@@ -65,7 +77,7 @@ const SlotBook = () => {
                      className='input'
                      pattern="([1]?[0-9]|2[0-3]):[0][0]"
                      onChange={inputHandler}
-                  />
+                  /> */}
                </div>
                
                <div>
