@@ -10,7 +10,7 @@ const SlotBook = () => {
       examtype:'CIA',
       name:userName,
       username:userId,
-      examlocation:''
+      examlocation:'EEE LH01'
     }
   );
 
