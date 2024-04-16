@@ -219,7 +219,7 @@ const UpdateStatusOfSelecetedBook = async() =>{
         margin:"20px 0px 20px 0px",
         padding:"10px",
 
-      }}>check</button>
+      }}>Save Status</button>
     </div>
   )
 }
